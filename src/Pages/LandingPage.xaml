@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:TouchBehaviorRelativeBinding.ViewModels"
+             x:DataType="viewmodels:LandingViewModel"
+             x:Class="TouchBehaviorRelativeBinding.Pages.LandingPage"
+             Title="MCT Relative Source Repro"
+             Padding="20,10">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior TextOverride="Back"/>
+    </Shell.BackButtonBehavior>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Spacing="20">
+                <Label Text="This sample app reproduces a behavioral issue experienced by the MCT TouchBehaviour which is causing RelativeSource Bindings to throw exceptions."/>
+                
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="The following example will use an x:Reference to set the command binding, this will work perfectly and behave as expected"/>
+                
+                    <Button Text="x:Reference Example" Command="{Binding ShowReferenceCommand}"/>
+                </VerticalStackLayout>
+                
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="The following example will use a RelativeSource to set the command binding, this will throw and exception and crash the app"/>
+                
+                    <Button Command="{Binding ShowRelativeSourceCommand}" Text="RelativeSource Example"/>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
