@@ -5,6 +5,7 @@
              xmlns:viewmodels="clr-namespace:TouchBehaviorRelativeBinding.ViewModels"
              x:DataType="viewmodels:LandingViewModel"
              x:Class="TouchBehaviorRelativeBinding.Pages.LandingPage"
+             xmlns:behaviors="clr-namespace:TouchBehaviorRelativeBinding.Behaviors"
              Title="MCT Relative Source Repro"
              Padding="20,10">
     <Shell.BackButtonBehavior>
@@ -27,7 +28,13 @@
                 
                     <Button Command="{Binding ShowRelativeSourceCommand}" Text="RelativeSource Example"/>
                 </VerticalStackLayout>
+                
+                <ContentView HeightRequest="300" WidthRequest="300">
+                    <ContentView.Behaviors>
+                        <behaviors:ColorBehavior Color="{AppThemeBinding Light=Blue, Dark=Red}"/>
+                    </ContentView.Behaviors>
+                </ContentView>
             </VerticalStackLayout>
-        </ScrollView>
+         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
